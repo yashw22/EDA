@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    addsq-service:
+        build: ./addsq
+        volumes:
+            - ./addsq:/usr/src/app
+        ports:
+            - 5001:80
+        depends_on:
+            - sine-service
+            - cosine-service
+    sine-service:
+        build: ./sine
+    cosine-service:
+        build: ./cosine
+        
